@@ -53,8 +53,8 @@ shell: $(_BUILDER_DIR)
 
 
 os: $(_BUILDER_DIR)
-	rm -rf $(_BUILDER_DIR)/stages/{pikvm,pikvm-otg-console}
-	cp -a pikvm pikvm-otg-console $(_BUILDER_DIR)/stages
+	rm -rf $(_BUILDER_DIR)/stages/{pikvm,pikvm-otg-console,jack}
+	cp -a pikvm pikvm-otg-console jack $(_BUILDER_DIR)/stages
 	cp -a disk-$(if $(findstring v2,$(PLATFORM))$(findstring v3,$(PLATFORM)),v2,v0).conf $(_BUILDER_DIR)/disk.conf
 	$(MAKE) -C $(_BUILDER_DIR) os \
 		NC=$(NC) \
@@ -73,7 +73,8 @@ os: $(_BUILDER_DIR)
 		HOSTNAME=$(HOSTNAME) \
 		LOCALE=$(LOCALE) \
 		TIMEZONE=$(TIMEZONE) \
-		REPO_URL=$(REPO_URL)
+		REPO_URL=$(REPO_URL) \
+		REMOTE_JACK_SERVER=$(REMOTE_JACK_SERVER)
 
 
 $(_BUILDER_DIR):
