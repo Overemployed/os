@@ -1,6 +1,7 @@
 ADD stages/pikvm/jackd.service /etc/systems/system/jackd.service
 ADD stages/pikvm/jacktrip.service /etc/systems/system/jacktrip.service
 ADD stages/pikvm/jack.conf /var/tmp/jack.conf
+RUN echo "$HOSTNAME" >> /var/tmp/jack.conf
 
 RUN useradd -M -r jacktrip -G audio \
 	&& systemctl enable jackd.service \
