@@ -5,9 +5,9 @@ PLATFORM ?= v2-hdmi
 SUFFIX ?=
 STAGES ?= __init__ os pikvm-repo watchdog ro no-audit pikvm __cleanup__
 
-HOSTNAME ?= pikvm
+HOSTNAME ?= J1
 LOCALE ?= en_US
-TIMEZONE ?= Europe/Moscow
+TIMEZONE ?= America/New_York
 #REPO_URL ?= http://mirror.yandex.ru/archlinux-arm
 REPO_URL ?= http://de3.mirror.archlinuxarm.org
 BUILD_OPTS ?=
