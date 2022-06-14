@@ -3,6 +3,11 @@ ADD stages/pikvm/jacktrip.service /etc/systems/system/jacktrip.service
 ADD stages/pikvm/jack.conf /var/tmp/jack.conf
 RUN echo "$HOSTNAME" >> /var/tmp/jack.conf
 
+RUN cat <<-EOF>>/var/tmp/jack.conf
+JACK_OPTS=-d alsa -r 44100 -p 64
+JACKTRIP_OPTS=-C $REMOTE_JACK_SERVER -n 1 --remotename $HOSTNAME
+EOF
+
 RUN useradd -M -r jacktrip -G audio \
 	&& systemctl enable jackd.service \
 	&& systemctl enable jacktrip.service
