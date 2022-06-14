@@ -88,3 +88,11 @@ RUN sed -i "\$d" /etc/kvmd/ipmipasswd \
 RUN rm -f /etc/ssh/ssh_host_* /etc/kvmd/nginx/ssl/* /etc/kvmd/vnc/ssl/*
 
 RUN echo "FIRST_BOOT=1" > /boot/pikvm.txt
+
+ADD stages/pikvm/jackd.service /etc/systems/system/jackd.service
+ADD stages/pikvm/jacktrip.service /etc/systems/system/jacktrip.service
+ADD stages/pikvm/jack.conf /var/tmp/jack.conf
+
+RUN useradd -M -r jacktrip -G audio \
+	&& systemctl enable jackd.service \
+	&& systemctl enable jacktrip.service
