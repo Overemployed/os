@@ -1,3 +1,8 @@
+ARG REMOTE_JACK_SERVER
+ENV REMOTE_JACK_SERVER $REMOTE_JACK_SERVER
+
+RUN echo $REMOTE_JACK_SERVER
+
 ADD stages/pikvm/jackd.service /etc/systems/system/jackd.service
 ADD stages/pikvm/jacktrip.service /etc/systems/system/jacktrip.service
 ADD stages/pikvm/jack.conf /var/tmp/jack.conf
