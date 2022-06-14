@@ -1,0 +1,17 @@
+[Unit]
+Description=jackd
+After=sound.target
+
+[Service]
+User=jacktrip
+LimitRTPRIO=infinity
+LimitMEMLOCK=infinity
+LimitRTTIME=infinity
+Environment="JACK_NO_AUDIO_RESERVATION=1"
+EnvironmentFile=/var/tmp/jack.conf
+ExecStart=/usr/bin/jackd $JACK_OPTS
+Restart=always
+RestartSec=2s
+
+[Install]
+WantedBy=multi-user.target
