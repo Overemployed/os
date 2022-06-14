@@ -6,6 +6,7 @@ SUFFIX ?=
 STAGES ?= __init__ os pikvm-repo watchdog ro no-audit pikvm __cleanup__
 
 HOSTNAME ?= J1
+REMOTE_JACK_SERVER ?= pc.lan
 LOCALE ?= en_US
 TIMEZONE ?= America/New_York
 #REPO_URL ?= http://mirror.yandex.ru/archlinux-arm
